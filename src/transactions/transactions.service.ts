@@ -57,7 +57,7 @@ export class TransactionsService {
 
     return transaction;
   }
-  @Cron(CronExpression.EVERY_5_SECONDS, { name: 'fetch_live_transactions' })
+  @Cron(CronExpression.EVERY_2_HOURS, { name: 'fetch_live_transactions' })
   async fetchLiveTransactions() {
     const response = await fetch(
       `${process.env.BACKEND_URL}/live?access_key=${process.env.BACKEND_URL_ACCESS_KEY}&symbols=BTC,ETH,XRP`,
